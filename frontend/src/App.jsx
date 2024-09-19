@@ -4,12 +4,32 @@ import { useState, useEffect } from 'react'
 function App() {
     const [socialLinks, setSocialLinks] = useState([])
 
-    useEffect(() => {
-        fetch('http://127.0.0.1:8000/api/sociallinks/')
-            .then(res => res.json())
-            .then(data => setSocialLinks(data))
-            .catch(err => console.error(err))
+    useEffect(()=> {
+        setSocialLinks([
+            {
+                name: 'YouTube',
+                link: 'https://www.youtube.com/@EspySoftware',
+                icon: 'https://unavatar.io/youtube/EspySoftware'
+            },
+            {
+                name: 'Github',
+                link: 'https://github.com/EspySoftware/',
+                icon: 'https://unavatar.io/github/EspySoftware'
+            },
+            {
+                name: 'Correo',
+                link: 'mailto:software.espy@gmail.com',
+                icon: 'https://seeklogo.com/images/M/mail-icon-logo-28FE0635D0-seeklogo.com.png'
+            }
+        ]); 
     }, [])
+
+    // useEffect(() => {
+    //     fetch('http://127.0.0.1:8000/api/sociallinks/')
+    //         .then(res => res.json())
+    //         .then(data => setSocialLinks(data))
+    //         .catch(err => console.error(err))
+    // }, [])
 
     return (
         <>
